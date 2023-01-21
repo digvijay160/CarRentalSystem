@@ -94,7 +94,7 @@ class HatchBack:public Car
             cout<<"\tDO you want to rent a Hatchback Car? Enter 'Y' for yes or 'N' for no: ";
             cin>>reply;
 
-            if(reply=='N'||reply=='y'){
+            if(reply=='N'||reply=='n'){
                 return;
             }
             else{
@@ -145,5 +145,97 @@ class HatchBack:public Car
 
 class SUV:public Car
 {
+    public:
+        void carDetails(){          //displays suv car details and cost
 
+            cout<<"\n\n\t\tCRETA";
+            cout<<"\tCOMPASS";
+            cout<<"THAR";
+
+            cout<<"\nVEHICLE NO";
+            cout<<"\t\t9390";
+            cout<<"\t\t3433";
+            cout<<"\t\t5802";
+
+            cout<<"\nCOLOR";
+            cout<<"\t\tBLACK";
+            cout<<"\t\tBLACK";
+            cout<<"\t\tRED";
+
+            cout<<"\nMILEAGE";
+            cout<<"\t\t20kmpl";
+            cout<<"\t\t16kmpl";
+            cout<<"\t\t17kmpl";
+
+            cout<<"\nCOST";
+            cout<<"\t\t2200/day";
+            cout<<"\t\t2300/day";
+            cout<<"\t\t2100/day";
+        }
+
+        void carAvailable(){           //displays name of each suv available
+
+            cout<<"\t\tSUV CARS AVAILABLE\n\n";
+
+            for(int i=1;i<=nCreta;i++)
+                cout<<"\tCRETA\n";
+
+            for(int i=1;i<=nCompass;i++)
+                cout<<"\tCOMPASS\n";
+
+            for(int i=1;i<=nThar;i++)
+                cout<<"\tTHAR\n";
+        }
+
+        void rentCar(){                 //if user chooses suv
+
+            cout<<"\t Do you want to rent a SUV Car? Enter 'Y' for yes or 'N' for no: ";
+            cin>>reply;
+
+            if(reply=='N'||reply=='n'){
+                return;
+            }
+            else{
+
+                customerDetails();
+                cout<<"\tEnter 1/2/3 to rent:\n\t1.CRETA\n\t2. COMPASS\n\t3. THAR\n\t";
+                cin>>carType;
+                cout<<"\tEnter thr number of days oyu want to rent car for: ";
+                cin>>rentDays;
+                cout<<"\n";
+
+                switch(carType){
+                    case 1: if(nCreta==0){
+                                cout<<"\tSorry, Creta is not availablle at the moment. Choose another car.\n";
+                            }
+                            else{
+                                carNo=7;
+                                cout<<"\tTotal Rent= "<<2200*rentDays<<endl;
+                                totalRent+=2200*rentDays;
+                                nCreta--;
+                            }
+                            break;
+                    case 2: if(nCompass==0){
+                                cout<<"\tSorry, Compass is not availablle at the moment. Choose another car.\n";
+                            }
+                            else{
+                                carNo=8;
+                                cout<<"\tTotal Rent= "<<2300*rentDays<<endl;
+                                totalRent+=2300*rentDays;
+                                nCompass--;
+                            }
+                            break;
+                    case 3: if(nThar==0){
+                                cout<<"\tSorry, Thar is not availablle at the moment. Choose another car.\n";
+                            }
+                            else{
+                                carNo=9;
+                                cout<<"\tTotal Rent= "<<2100*rentDays<<endl;
+                                totalRent+=2100*rentDays;
+                                nThar--;
+                            }
+                            break;                            
+                }
+            }
+        }
 };
