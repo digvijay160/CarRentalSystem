@@ -143,6 +143,103 @@ class HatchBack:public Car
         }
 };
 
+class Sedan:public Car
+{
+    public:
+        void carDetails(){          //displays sedan car details and cost
+
+            cout<<"\n\n\t\tCITY";
+            cout<<"\tVERNA";
+            cout<<"\tCIAZ";
+
+            cout<<"\nVEHICLE NO";
+            cout<<"\t\t4566";
+            cout<<"\t\t1267";
+            cout<<"\t\t9866";
+
+            cout<<"\nCOLOR";
+            cout<<"\t\tWHITE";
+            cout<<"\t\tBLACK";
+            cout<<"\t\tGREY";
+
+            cout<<"\nMILEAGE";
+            cout<<"\t\t19kmpl";
+            cout<<"\t\t20kmpl";
+            cout<<"\t\t19kmpl";
+
+            cout<<"\nCOST";
+            cout<<"\t\t1900/day";
+            cout<<"\t\t2000/day";
+            cout<<"\t\t1800/day";
+        }
+
+        void carAvailable(){           //displays name of each sedan available
+
+            cout<<"\t\tSEDAN CARS AVAILABLE\n\n";
+
+            for(int i=1;i<=nCity;i++)
+                cout<<"\tCITY\n";
+
+            for(int i=1;i<=nVerna;i++)
+                cout<<"\tVERNA\n";
+
+            for(int i=1;i<=nCiaz;i++)
+                cout<<"\tCIAZ\n";
+        }
+
+        void rentCar(){                 //if user chooses sedan
+
+            cout<<"\t Do you want to rent a Sedan Car? Enter 'Y' for yes or 'N' for no: ";
+            cin>>reply;
+
+            if(reply=='N'||reply=='n'){
+                return;
+            }
+            else{
+
+                customerDetails();
+                cout<<"\tEnter 1/2/3 to rent:\n\t1.CITY\n\t2. VERNA\n\t3. CIAZ\n\t";
+                cin>>carType;
+                cout<<"\tEnter thr number of days oyu want to rent car for: ";
+                cin>>rentDays;
+                cout<<"\n";
+
+                switch(carType){
+                    case 1: if(nCity==0){
+                                cout<<"\tSorry, City is not availablle at the moment. Choose another car.\n";
+                            }
+                            else{
+                                carNo=4;
+                                cout<<"\tTotal Rent= "<<1900*rentDays<<endl;
+                                totalRent+=1900*rentDays;
+                                nCity--;
+                            }
+                            break;
+                    case 2: if(nVerna==0){
+                                cout<<"\tSorry, Verna is not availablle at the moment. Choose another car.\n";
+                            }
+                            else{
+                                carNo=5;
+                                cout<<"\tTotal Rent= "<<2000*rentDays<<endl;
+                                totalRent+=2000*rentDays;
+                                nVerna--;
+                            }
+                            break;
+                    case 3: if(nCiaz==0){
+                                cout<<"\tSorry, Ciaz is not availablle at the moment. Choose another car.\n";
+                            }
+                            else{
+                                carNo=6;
+                                cout<<"\tTotal Rent= "<<1800*rentDays<<endl;
+                                totalRent+=1800*rentDays;
+                                nCiaz--;
+                            }
+                            break;                            
+                }
+            }
+        }
+};
+
 class SUV:public Car
 {
     public:
@@ -150,7 +247,7 @@ class SUV:public Car
 
             cout<<"\n\n\t\tCRETA";
             cout<<"\tCOMPASS";
-            cout<<"THAR";
+            cout<<"\tTHAR";
 
             cout<<"\nVEHICLE NO";
             cout<<"\t\t9390";
