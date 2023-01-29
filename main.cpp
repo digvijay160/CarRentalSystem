@@ -60,19 +60,19 @@ class HatchBack:public Car
             cout<<"\t\t9814";
 
             cout<<"\nCOLOR";
-            cout<<<"\t\tWHITE";
-            cout<<<"\t\tBLACK";
-            cout<<<"\t\tBLUE";
+            cout<<"\t\tWHITE";
+            cout<<"\t\tBLACK";
+            cout<<"\t\tBLUE";
 
             cout<<"\nMILEAGE";
-            cout<<<"\t\t19kmpl";
-            cout<<<"\t\t16kmpl";
-            cout<<<"\t\t11kmpl";
+            cout<<"\t\t19kmpl";
+            cout<<"\t\t16kmpl";
+            cout<<"\t\t11kmpl";
 
             cout<<"\nCOST";
-            cout<<<"\t\t1800/day";
-            cout<<<"\t\t1600/day";
-            cout<<<"\t\t1400/day";
+            cout<<"\t\t1800/day";
+            cout<<"\t\t1600/day";
+            cout<<"\t\t1400/day";
         }
 
         void carAvailable(){        //displays name of each hatchback-car available
@@ -335,4 +335,34 @@ class SUV:public Car
                 }
             }
         }
+};
+
+class Rent: virtual public HatchBack,virtual public Sedan, virtual public SUV
+{
+    public:
+    int inp;
+
+    void welcome(){
+
+        cout<<"\n\tKindly enter the type of car you want\n";
+        cout<<"\t1. Hatchback\n\t2. Sedan\n\t3. SUV\n\t";
+        cin>>inp;
+        cout<<"\n";
+
+        switch(inp){
+            case 1: HatchBack::carAvailable();
+                    HatchBack::carDetails();
+                    HatchBack::rentCar();
+                    break;
+            case 2: Sedan::carAvailable();
+                    Sedan::carDetails();
+                    Sedan::rentCar();
+                    break;
+            case 3: SUV::carAvailable();
+                    SUV::carDetails();
+                    SUV::rentCar();
+                    break;
+            default: cout<<"\n\tEnter a valid number (1/2/3)";
+        }
+    }
 };
