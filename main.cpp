@@ -113,7 +113,7 @@ class HatchBack:public Car
                             else{
                                 carNo=1;
                                 cout<<"\tTotal Rent= "<<1800*rentDays<<endl;
-                                totalRent+=1000*rentDays;
+                                totalRent+=1800*rentDays;
                                 nSwift--;
                             }
                             break;
@@ -123,7 +123,7 @@ class HatchBack:public Car
                             else{
                                 carNo=2;
                                 cout<<"\tTotal Rent= "<<1600*rentDays<<endl;
-                                totalRent+=1000*rentDays;
+                                totalRent+=1600*rentDays;
                                 nBaleno--;
                             }
                             break;
@@ -133,7 +133,7 @@ class HatchBack:public Car
                             else{
                                 carNo=3;
                                 cout<<"\tTotal Rent= "<<1400*rentDays<<endl;
-                                totalRent+=1000*rentDays;
+                                totalRent+=1400*rentDays;
                                 nI20--;
                             }
                             break;
@@ -366,3 +366,131 @@ class Rent: virtual public HatchBack,virtual public Sedan, virtual public SUV
         }
     }
 };
+
+
+int main(){
+
+    char reply;
+    Rent r;
+
+    cout<<"\n\tCAR RENTALS\n";
+    r.welcome();
+
+    ofstream fileCust;
+    fileCust.open("CustomerDetails.txt");
+    fileCust<<"\n\t\tCAR RENTALS\n";
+    fileCust<<"\t\tRECEIPT\n";
+    fileCust<<"\n\t\tCUSTOMER DETAILS\n";
+    fileCust<<"\tCustomer Name: "<<firstName<<" "<<lastName<<endl;
+    fileCust<<"\tContact No.: "<<contactNo<<endl;
+    fileCust<<"\tLicense No.:"<<licenseNo<<endl<<endl<<endl;
+
+    fileCust<<"\tType of Car\tRent Days\tCar Cost\tTotal\n";
+
+    while(true){
+
+        do{
+
+            if(carNo==1)
+            {
+                fileCust<<"\tSWIFT";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹1800";
+                fileCust<<"\t"<<1800*rentDays<<endl;
+            }
+
+            if(carNo==2)
+            {
+                fileCust<<"\tBALENO";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹1600";
+                fileCust<<"\t"<<1600*rentDays<<endl;
+            }
+
+            if(carNo==3)
+            {
+                fileCust<<"\tI20";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹1400";
+                fileCust<<"\t"<<1400*rentDays<<endl;
+            }
+
+            if(carNo==4)
+            {
+                fileCust<<"\tCITY";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹1900";
+                fileCust<<"\t"<<1900*rentDays<<endl;
+            }
+
+            if(carNo==5)
+            {
+                fileCust<<"\tVERNA";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹2000";
+                fileCust<<"\t"<<2000*rentDays<<endl;
+            }
+
+            if(carNo==6)
+            {
+                fileCust<<"\tCIAZ";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹1800";
+                fileCust<<"\t"<<1800*rentDays<<endl;
+            }
+
+            if(carNo==7)
+            {
+                fileCust<<"\tCRETA";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹2200";
+                fileCust<<"\t"<<2200*rentDays<<endl;
+            }
+
+            if(carNo==8)
+            {
+                fileCust<<"\tCOMPASS";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹2300";
+                fileCust<<"\t"<<2300*rentDays<<endl;
+            }
+            
+            if(carNo==9)
+            {
+                fileCust<<"\tTHAR";
+                fileCust<<"\t"<<rentDays;
+                fileCust<<"\t₹2100";
+                fileCust<<"\t"<<2100*rentDays<<endl;
+            }
+
+            cout<<"\n\tDo you want to rent another car? Press 'Y' for yes and 'N' for no: ";
+            cin>>reply;
+
+            if(reply=='n'||reply=='N')
+                break;
+            
+            r.welcome();
+        }while(reply=='y'||reply=='Y');
+
+        fileCust.close();
+
+        string receipt;
+        ifstream fileCust("CustomerDetails.txt");
+
+        if(fileCust.is_open()){
+
+            while(getline(fileCust,receipt))
+            {
+                cout<<receipt<<endl;
+            }
+            fileCust.close();
+        }
+        else{
+            cout<<"\n\tFile cannaot be opened";
+        }
+
+        cout<<"\n\tTOTAL RENT: "<<totalRent<<endl;
+        cout<<"\n\tThank You, hope to see you again\n";
+    }
+    return 0;
+}
