@@ -7,8 +7,8 @@ using namespace std;
 //global declarations
 int carNo=0,rentDays;                   //carNo stores type of car of the available 9 cars
 float totalRent=0;
-string firstName,lastName;
-long int contactNo,licenseNo;
+string firstName,lastName,licenseNo;
+long int contactNo;
 
 class Car
 {
@@ -51,11 +51,11 @@ class HatchBack:public Car
         void carDetails(){          //displays hatchback-Car details and cost
             
             cout<<"\n\n\t\tSWIFT";
-            cout<<"\tBALENO";
-            cout<<"\ti20";
+            cout<<"\t\tBALENO";
+            cout<<"\t\ti20";
 
             cout<<"\nVEHICLE NO";
-            cout<<"\t\t2290";
+            cout<<"\t2290";
             cout<<"\t\t7822";
             cout<<"\t\t9814";
 
@@ -71,8 +71,8 @@ class HatchBack:public Car
 
             cout<<"\nCOST";
             cout<<"\t\t1800/day";
-            cout<<"\t\t1600/day";
-            cout<<"\t\t1400/day";
+            cout<<"\t1600/day";
+            cout<<"\t1400/day";
         }
 
         void carAvailable(){        //displays name of each hatchback-car available
@@ -91,7 +91,7 @@ class HatchBack:public Car
 
         void rentCar(){             //if user chooses hatchback
 
-            cout<<"\tDO you want to rent a Hatchback Car? Enter 'Y' for yes or 'N' for no: ";
+            cout<<"\n\n\tDO you want to rent a Hatchback Car? Enter 'Y' for yes or 'N' for no: ";
             cin>>reply;
 
             if(reply=='N'||reply=='n'){
@@ -100,9 +100,9 @@ class HatchBack:public Car
             else{
 
                 customerDetails();
-                cout<<"\tEnter 1/2/3 to rent:\n\t1. SWIFT\n\t2.BALENO\n\t3. i20\n\t";
+                cout<<"\n\tEnter 1/2/3 to rent:\n\t1. SWIFT\n\t2.BALENO\n\t3. i20\n\t";
                 cin>>carType;
-                cout<<"\tEnter number of days you want to rent car for: ";
+                cout<<"\n\tEnter number of days you want to rent car for: ";
                 cin>>rentDays;
                 cout<<"\n";
 
@@ -149,11 +149,11 @@ class Sedan:public Car
         void carDetails(){          //displays sedan car details and cost
 
             cout<<"\n\n\t\tCITY";
-            cout<<"\tVERNA";
-            cout<<"\tCIAZ";
+            cout<<"\t\tVERNA";
+            cout<<"\t\tCIAZ";
 
             cout<<"\nVEHICLE NO";
-            cout<<"\t\t4566";
+            cout<<"\t4566";
             cout<<"\t\t1267";
             cout<<"\t\t9866";
 
@@ -169,8 +169,8 @@ class Sedan:public Car
 
             cout<<"\nCOST";
             cout<<"\t\t1900/day";
-            cout<<"\t\t2000/day";
-            cout<<"\t\t1800/day";
+            cout<<"\t2000/day";
+            cout<<"\t1800/day";
         }
 
         void carAvailable(){           //displays name of each sedan available
@@ -189,7 +189,7 @@ class Sedan:public Car
 
         void rentCar(){                 //if user chooses sedan
 
-            cout<<"\t Do you want to rent a Sedan Car? Enter 'Y' for yes or 'N' for no: ";
+            cout<<"\n\n\t Do you want to rent a Sedan Car? Enter 'Y' for yes or 'N' for no: ";
             cin>>reply;
 
             if(reply=='N'||reply=='n'){
@@ -250,7 +250,7 @@ class SUV:public Car
             cout<<"\tTHAR";
 
             cout<<"\nVEHICLE NO";
-            cout<<"\t\t9390";
+            cout<<"\t9390";
             cout<<"\t\t3433";
             cout<<"\t\t5802";
 
@@ -266,8 +266,8 @@ class SUV:public Car
 
             cout<<"\nCOST";
             cout<<"\t\t2200/day";
-            cout<<"\t\t2300/day";
-            cout<<"\t\t2100/day";
+            cout<<"\t2300/day";
+            cout<<"\t2100/day";
         }
 
         void carAvailable(){           //displays name of each suv available
@@ -286,7 +286,7 @@ class SUV:public Car
 
         void rentCar(){                 //if user chooses suv
 
-            cout<<"\t Do you want to rent a SUV Car? Enter 'Y' for yes or 'N' for no: ";
+            cout<<"\n\t Do you want to rent a SUV Car? Enter 'Y' for yes or 'N' for no: ";
             cin>>reply;
 
             if(reply=='N'||reply=='n'){
@@ -295,9 +295,9 @@ class SUV:public Car
             else{
 
                 customerDetails();
-                cout<<"\tEnter 1/2/3 to rent:\n\t1.CRETA\n\t2. COMPASS\n\t3. THAR\n\t";
+                cout<<"\n\tEnter 1/2/3 to rent:\n\t1.CRETA\n\t2. COMPASS\n\t3. THAR\n\t";
                 cin>>carType;
-                cout<<"\tEnter thr number of days oyu want to rent car for: ";
+                cout<<"\n\tEnter thr number of days oyu want to rent car for: ";
                 cin>>rentDays;
                 cout<<"\n";
 
@@ -394,73 +394,73 @@ int main(){
             if(carNo==1)
             {
                 fileCust<<"\tSWIFT";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹1800";
-                fileCust<<"\t"<<1800*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs1800";
+                fileCust<<"\t\t"<<1800*rentDays<<endl;
             }
 
             if(carNo==2)
             {
                 fileCust<<"\tBALENO";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹1600";
-                fileCust<<"\t"<<1600*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs1600";
+                fileCust<<"\t\t"<<1600*rentDays<<endl;
             }
 
             if(carNo==3)
             {
                 fileCust<<"\tI20";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹1400";
-                fileCust<<"\t"<<1400*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs1400";
+                fileCust<<"\t\t"<<1400*rentDays<<endl;
             }
 
             if(carNo==4)
             {
                 fileCust<<"\tCITY";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹1900";
-                fileCust<<"\t"<<1900*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs1900";
+                fileCust<<"\t\t"<<1900*rentDays<<endl;
             }
 
             if(carNo==5)
             {
                 fileCust<<"\tVERNA";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹2000";
-                fileCust<<"\t"<<2000*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs2000";
+                fileCust<<"\t\t"<<2000*rentDays<<endl;
             }
 
             if(carNo==6)
             {
                 fileCust<<"\tCIAZ";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹1800";
-                fileCust<<"\t"<<1800*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs1800";
+                fileCust<<"\t\t"<<1800*rentDays<<endl;
             }
 
             if(carNo==7)
             {
                 fileCust<<"\tCRETA";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹2200";
-                fileCust<<"\t"<<2200*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs2200";
+                fileCust<<"\t\t"<<2200*rentDays<<endl;
             }
 
             if(carNo==8)
             {
                 fileCust<<"\tCOMPASS";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹2300";
-                fileCust<<"\t"<<2300*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs2300";
+                fileCust<<"\t\t"<<2300*rentDays<<endl;
             }
             
             if(carNo==9)
             {
                 fileCust<<"\tTHAR";
-                fileCust<<"\t"<<rentDays;
-                fileCust<<"\t₹2100";
-                fileCust<<"\t"<<2100*rentDays<<endl;
+                fileCust<<"\t\t"<<rentDays;
+                fileCust<<"\t\tRs2100";
+                fileCust<<"\t\t"<<2100*rentDays<<endl;
             }
 
             cout<<"\n\tDo you want to rent another car? Press 'Y' for yes and 'N' for no: ";
@@ -491,6 +491,7 @@ int main(){
 
         cout<<"\n\tTOTAL RENT: "<<totalRent<<endl;
         cout<<"\n\tThank You, hope to see you again\n";
+        break;
     }
     return 0;
 }
